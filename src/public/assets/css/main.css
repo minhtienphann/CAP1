@@ -3,6 +3,10 @@
         width: 100%;
         position: relative;
         }
+        *{
+                list-style: none;
+                text-decoration: none;
+        }
         
         /* =========== header =========== */
         .header{
@@ -62,10 +66,56 @@
                 color: var(--hover-color);
         }
         
+        .btn-acc{
+                position: relative;
+        }
+        
+        .header-menu-item:last-child:hover .show-acc{
+                display: block;
+        }
+        
+        .show-acc{
+                position: absolute;
+                display: block;
+                background-color: var(--while-color);
+                width: 10%;
+                right: 44px;
+                top: 60px;
+                border-radius: 3px;
+                display: none;
+        }
+        
+        .btn-acc::before{
+                content: "";
+                position: absolute;
+                top: 23px;
+                left: 0;
+                height: 20px;
+                width: 125px;
+        }
+        
+        .show-acc a{
+                display: block;
+                width: 100%;
+                padding: 20px;
+                font-size: 1.6rem;
+                color: var(--primary-color);
+        }
+        
+        .show-acc a:hover{
+                background-color: var(--primary-color);
+                color: var(--while-color);
+        }
+        
+        .show-acc i{
+                margin-right: 10px;
+        }
+        
+        
         /* =========== container =========== */
         .container{
                 position: absolute;
-                top: 65px;
+                top: 110px;
                 left: calc(50% - 195px);
                 z-index: 1;
         }
@@ -170,7 +220,7 @@
         
         .container-search-input{
                 height: 100%;
-                width: 100%;
+                width: 120%;
                 border: 2px solid var(--primary-color) ;
                 border-radius: 3px;
                 outline: none;
@@ -549,3 +599,5 @@
                 font-weight: 500;
                 background: rgb(255, 255, 255);
         }
+        
+        

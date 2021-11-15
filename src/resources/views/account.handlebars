@@ -1,0 +1,112 @@
+ <div class="acc-container">
+            <div class="list">
+                <div class="acc-menu">
+                    <li class="acc-item" id="profile">
+                    <a href="#profile" class="acc-btn"><i class="far fa-user-circle"></i>Thông Tin Cá Nhân</a>
+                <div class="smenu">
+                    <button id="show-info" class="btn-info"> Thông Tin Cá Nhân</button>
+                    <button id="show-update" class="btn-info"> Cập Nhật Thông Tin </button>
+                </div>
+            </li>
+        </div>
+        <div class="acc-menu">
+            <li class="acc-item" id="setting">
+                <a href="#setting" class="acc-btn"><i class="fas fa-cogs"></i>Cài Đặt</a>
+                <div class="smenu">
+                    <a href="">Mật Khẩu</a>
+                </div>
+            </li>
+        </div>
+        <div class="acc-menu">
+            <li class="acc-item">
+                <a href="" class="acc-btn"><i class="fas fa-sign-out-alt"></i>Đăng Xuất</a>
+            </li>
+        </div>
+        </div>
+            <div class="acc-content">
+                <div id="acc-main" class="acc-main">
+                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/5fafbb923393b712b96488590b8f781f.png" alt="">
+                    <h2>Trang Thông Tin Cá Nhân</h2>
+                </div>
+                <div id="acc-with-info" class="acc-with-info">
+                    <div class="acc-content-header">
+                        <h2>Hồ Sơ Của Tôi</h2>
+                        <p>Quản lý thông tin hồ sơ để thuận tiện trao đổi</p>
+                    </div>
+                    <div class="acc-info-content">
+                        <table class="info-user">
+                            <tr>
+                                <th>Họ Tên:</th>
+                                <td>Tràn Viết Minh Đức</td>
+                            </tr>
+                            <tr>
+                                <th>Số Điện Thoại:</th>
+                                <td>0932535006</td>
+                            </tr>
+                            <tr>
+                                <th>Giới Tính:</th>
+                                <td>Nam</td>
+                            </tr>
+                            <tr>
+                                <th>Năm Sinh:</th>
+                                <td>1999</td>
+                            </tr>
+                            <tr>
+                                <th>E-mail:</th>
+                                <td>ductran2499@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <th>Địa Chỉ Liên Hệ:</th>
+                                <td>37 Châu Thượng Văn, phường Hòa Cường Bắc, quận Hải Châu, Đà Nẵng</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="update-info" class="update-info">
+                    <table class="update-user">
+                        <tr>
+                            <th>Họ Tên:</th>
+                            <td>
+                                <input type="text" class="input-update update-name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Số Điện Thoại:</th>
+                            <td>
+                                <input type="number" class="input-update update-phone">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Giới Tính:</th>
+                            <td><select style="
+                                font-size: 1.6rem;
+                                height: 30px;
+                                width: 60px;">
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <th>Năm Sinh:</th>
+                            <td><input type="number" class="input-update update-birth"></td>
+                        </tr>
+                        <tr>
+                            <th>Địa Chỉ Liên Hệ:</th>
+                            <td>
+                                <div style="display: flex;">
+                                    <input type="text" class="input-update update-city" placeholder="Tỉnh/Thành ">
+                                    <input type="text" class="input-update update-district" placeholder="Quận/Huyện ">
+                                    <input type="text" class="input-update update-ward" placeholder="Phường/Xã ">
+                                </div>
+                                <input type="text" class="input-update update-address" placeholder="Ghi rõ số nhà, tên đường">
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="btn-update">
+                        CẬP NHẬT THÔNG TIN
+                    </button>
+                </div>
+            </div>
+    </div>
+    <script type="text/javascript" src="assets/js/account.js"></script>
