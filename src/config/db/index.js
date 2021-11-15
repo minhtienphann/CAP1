@@ -1,18 +1,13 @@
-const mongoose = require('mongoose');
+config = {
+    user: 'sa1',
+    password: '1234',
+    server: 'localhost', 
+    database: 'Student',
+    port: 1433,
+    trustServerCertificate: true,
+    options: {
+        encrypt: true
+      } 
+};
 
-async function connect ()
-{
-    try{
-        await mongoose.connect('mongodb://localhost:27017/AssistantsCommunity',{
-            //useNewUrlPager: true,
-            //useUnifiedTopology: true
-        });
-        console.log('Connect Sussecfully !!!')
-    }
-    catch(e){
-        console.log('Faill !!!'+e)
-    }
-   
-}
-
-module.exports = { connect };
+module.exports = config;

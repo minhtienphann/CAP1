@@ -1,7 +1,7 @@
 
-const homeRouter = require('./home')
-const loginRouter = require('./login')
-const registerRouter = require('./register')
+const homeRouter = require('./home');
+const loginRouter = require('./login');
+const registerRouter = require('./register');
 
 
 
