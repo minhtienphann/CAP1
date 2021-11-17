@@ -13,13 +13,8 @@
             <li class="acc-item" id="setting">
                 <a href="#setting" class="acc-btn"><i class="fas fa-cogs"></i>Cài Đặt</a>
                 <div class="smenu">
-                    <a href="">Mật Khẩu</a>
+                    <button id="btn-update-pass" class="btn-info"> Cập Nhật Thông Tin </button>
                 </div>
-            </li>
-        </div>
-        <div class="acc-menu">
-            <li class="acc-item">
-                <a href="" class="acc-btn"><i class="fas fa-sign-out-alt"></i>Đăng Xuất</a>
             </li>
         </div>
         </div>
@@ -64,7 +59,11 @@
                 </div>
 
                 <div id="update-info" class="update-info">
-                    <table class="update-user">
+                    <div class="acc-content-header">
+                        <h2>Cập Nhật Thông Tin Cá Nhân</h2>
+                        <p>Quản lý thông tin hồ sơ để thuận tiện trao đổi</p>
+                    </div>
+                    <table class="update-user change-info">
                         <tr>
                             <th>Họ Tên:</th>
                             <td>
@@ -103,8 +102,31 @@
                             </td>
                         </tr>
                     </table>
-                    <button class="btn-update">
+                    <button class="btn-update btn-update-info">
                         CẬP NHẬT THÔNG TIN
+                    </button>
+                </div>
+                <div id="update-pass" class="update-pass">
+                    <div class="acc-content-header">
+                        <h2>Thay Đổi Mật Khẩu</h2>
+                        <p>Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</p>
+                    </div>
+                    <table class="update-user change-pass">
+                        <tr>
+                            <th>Nhập Mật Khẩu Mới:</th>
+                            <td>
+                                <input type="password" class="input-pass update-new-pass">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Nhập Lại Mật Khẩu Mới:</th>
+                            <td>
+                                <input type="password" class="input-pass update-new-pass">
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="btn-update btn-pass">
+                        Cập Nhật Mật Khẩu
                     </button>
                 </div>
             </div>
