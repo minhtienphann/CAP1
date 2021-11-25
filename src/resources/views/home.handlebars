@@ -17,9 +17,33 @@
             </ul>
         </div>
     </div>
-    <div id="map">
-    </div>
-    
+
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibWluaHRpZW5waGFuIiwiYSI6ImNrd2VxNXY0cTA3NW4ycHJ1ZWljYWUzNmUifQ.MQbhTyXsNX8oTeaB7IcgUw';
+        if ("geolocation" in navigator) { 
+        navigator.geolocation.getCurrentPosition(position => { 
+        var map = new mapboxgl.Map({
+        // container id specified in the HTML
+          container: 'map',
+        
+          // style URL
+          style: 'mapbox://styles/mapbox/streets-v11', 
+
+         // initial position in [lon, lat] format
+          center: [position.coords.longitude, position.coords.latitude],
+
+         // initial zoom
+
+         zoom: 11
+        });
+        const marker = new mapboxgl.Marker()
+            .setLngLat([position.coords.longitude, position.coords.latitude])
+            .addTo(map);
+    }); 
+} else { /* geolocation IS NOT available, handle it */ }
+</script>
+
     <div class="content">
         <div class="content-header">
             <div class="content-header-img">

@@ -20,7 +20,7 @@
         </div>
             <div class="acc-content">
                 <div id="acc-main" class="acc-main">
-                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/5fafbb923393b712b96488590b8f781f.png" alt="">
+                    <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.qcvn.com%2Fwebdemo%2Fviettelcss%2Ftrangchu_2.html&psig=AOvVaw3kLM3ps7qk0js8CwfVODRg&ust=1637916650732000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJDalZWRs_QCFQAAAAAdAAAAABAD" alt="">
                     <h2>Trang Thông Tin Cá Nhân</h2>
                 </div>
                 <div id="acc-with-info" class="acc-with-info">
@@ -32,27 +32,27 @@
                         <table class="info-user">
                             <tr>
                                 <th>Họ Tên:</th>
-                                <td>Tràn Viết Minh Đức</td>
+                                <td>{{users.full_name}}</td>
                             </tr>
                             <tr>
                                 <th>Số Điện Thoại:</th>
-                                <td>0932535006</td>
+                                <td>{{users.phone_number}}</td>
                             </tr>
                             <tr>
                                 <th>Giới Tính:</th>
-                                <td>Nam</td>
+                                <td>{{users.sex}}</td>
                             </tr>
                             <tr>
                                 <th>Năm Sinh:</th>
-                                <td>1999</td>
+                                <td>{{users.birth_date}}</td>
                             </tr>
                             <tr>
                                 <th>E-mail:</th>
-                                <td>ductran2499@gmail.com</td>
+                                <td>{{users.email}}</td>
                             </tr>
                             <tr>
                                 <th>Địa Chỉ Liên Hệ:</th>
-                                <td>37 Châu Thượng Văn, phường Hòa Cường Bắc, quận Hải Châu, Đà Nẵng</td>
+                                <td>{{users.street}}</td>
                             </tr>
                         </table>
                     </div>
@@ -67,13 +67,13 @@
                         <tr>
                             <th>Họ Tên:</th>
                             <td>
-                                <input type="text" class="input-update update-name">
+                                <input type="text" class="input-update update-name" value="{{users.full_name}}">
                             </td>
                         </tr>
                         <tr>
                             <th>Số Điện Thoại:</th>
                             <td>
-                                <input type="number" class="input-update update-phone">
+                                <input type="text" class="input-update update-phone" value="{{users.phone_number}}">
                             </td>
                         </tr>
                         <tr>
@@ -88,17 +88,17 @@
                         </tr>
                         <tr>
                             <th>Năm Sinh:</th>
-                            <td><input type="number" class="input-update update-birth"></td>
+                            <td><input type="text" class="input-update update-birth" value="{{users.birth_date}}"></td>
                         </tr>
                         <tr>
                             <th>Địa Chỉ Liên Hệ:</th>
                             <td>
                                 <div style="display: flex;">
-                                    <input type="text" class="input-update update-city" placeholder="Tỉnh/Thành ">
-                                    <input type="text" class="input-update update-district" placeholder="Quận/Huyện ">
-                                    <input type="text" class="input-update update-ward" placeholder="Phường/Xã ">
+                                    <input type="text" class="input-update update-city" placeholder="Tỉnh/Thành " value="">
+                                    <input type="text" class="input-update update-district" placeholder="Quận/Huyện " value="">
+                                    <input type="text" class="input-update update-ward" placeholder="Phường/Xã " value="">
                                 </div>
-                                <input type="text" class="input-update update-address" placeholder="Ghi rõ số nhà, tên đường">
+                                <input type="text" class="input-update update-address" placeholder="Ghi rõ số nhà, tên đường" value="{{users.street}}">
                             </td>
                         </tr>
                     </table>
