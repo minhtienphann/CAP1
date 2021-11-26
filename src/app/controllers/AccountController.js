@@ -19,6 +19,7 @@ class AccountController {
             function(error, result) {
               if(!error)
               {
+                console.log('SUCCESSFULL ACCOUNT');
                 var users = new userMD.User();
                 var temp = result.recordset[0];
                 users.setfull_name = temp.full_name;

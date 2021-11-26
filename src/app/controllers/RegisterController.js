@@ -10,12 +10,13 @@ class RegisterController {
         res.render('register');
     }   
 
-    registing(req,res) {
+    registing(req,res,next) {
         let username = req.body.username;
         let password1 = req.body.password1;
         let password2 = req.body.password2;
         if(password1==password2)
         {
+            console.log('TRUNG KHOP PASSWORD');
             sql.connect(config, function(err) {
                 if(err)
                 {
@@ -23,18 +24,19 @@ class RegisterController {
                 }
                 else
                 {
+                    console.log('KET NOI DB THANH CONG REGISTER !!!');
                     var request = new sql.Request();
-                    request.query(request.template`insert into ACCOUNTUSER (acc_name,password)
-                     values(${username},${password2})`, function(error) {
-                        if(error)
-                        {
-                            console.log('register loi: '+error);
-                        }
-                        else
-                        {
-                            res.redirect('/login');
-                        }
-                    })
+                    request.query(`insert into ACCOUNTUSER (acc_name,password)
+                     values('${username}','${password2}')`, function(error) {
+                         if(!error)
+                         {
+                             console.log('DANG KY THANH CONG !!!!');
+                             res.redirect('/login');
+                         }
+                         else{
+                             console.log('DANG KY THAT BAI !!!'+error);
+                         }
+                     })
                 }
             })
         }
@@ -42,11 +44,7 @@ class RegisterController {
         {
             res.send('Mat khau 2 chua chinh xac');
         }
-        
     }
-    
-
-
 }
 
 module.exports = new RegisterController;

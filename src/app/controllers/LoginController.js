@@ -19,7 +19,7 @@ class LoginController {
                 var user = req.body.username;
                 var password = req.body.password; 
                 var request = new sql.Request();
-                request.query(request.template`select * from ACCOUNTUSER where acc_name=${user} and password=${password}`, function(error,User){
+                request.query(`select * from ACCOUNTUSER where acc_name='${user}' and password='${password}'`, function(error,User){
                   if(!error)
                   {
                       console.log('LOGIN SUCCESSFULL!!!!');
@@ -32,7 +32,6 @@ class LoginController {
                     res.redirect('login');
                   }
                 });
-                
               }
               else
               {
@@ -41,7 +40,7 @@ class LoginController {
           });
     }
 
-    logout(req,res, next) {
+    logout(req,res) {
       if(req.cookies.userID != null)
       {
         res.clearCookie('userID');
@@ -51,9 +50,7 @@ class LoginController {
       {
         res.redirect('/')
       }
-  }
-        
-    
+  } 
 }
 
 module.exports = new LoginController;

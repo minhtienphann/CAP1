@@ -3,7 +3,6 @@ const homeRouter = require('./home');
 const loginRouter = require('./login');
 const registerRouter = require('./register');
 const accountRouter = require('./account');
-const session = require('express-session');
 const Authentication = require('../config/authen')
 
 

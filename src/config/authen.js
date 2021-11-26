@@ -3,7 +3,7 @@ module.exports.requireAthu = function (req, res, next){
     {
         res.redirect('/login')
     }
-    next();
+    
 }
 
 
