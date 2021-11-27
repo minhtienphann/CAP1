@@ -11,11 +11,11 @@ class LoginController {
       res.render('login');
     }
 
-    login (req, res) {
+    login (req, res, next) {
       sql.connect(config, function (err) {
               if(!err)
               {
-                console.log('SUCCESSFULL!!!!');
+                console.log('CONNECT DB SUCCESSFULL!!!!');
                 var user = req.body.username;
                 var password = req.body.password; 
                 var request = new sql.Request();
@@ -25,11 +25,10 @@ class LoginController {
                       console.log('LOGIN SUCCESSFULL!!!!');
                       res.cookie('userID',User.recordset[0].acc_id, {maxAge: 500000})
                       res.redirect('/account');
-      
                   }
                   else
                   {
-                    res.redirect('login');
+                    res.redirect('/login');
                   }
                 });
               }
@@ -40,7 +39,7 @@ class LoginController {
           });
     }
 
-    logout(req,res) {
+    logout(req,res, next) {
       if(req.cookies.userID != null)
       {
         res.clearCookie('userID');

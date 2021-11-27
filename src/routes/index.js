@@ -4,7 +4,7 @@ const loginRouter = require('./login');
 const registerRouter = require('./register');
 const accountRouter = require('./account');
 const Authentication = require('../config/authen')
-
+const adminRouter = require('./admin');
 
 
 function route(app) {
@@ -15,7 +15,7 @@ function route(app) {
   //   saveUninitialized: true,
   //   cookie: { maxAge: 60000 }
   // }));
-  
+    app.use('/admin',adminRouter);
     app.use('/account',Authentication.requireAthu,accountRouter);
     app.use('/login',loginRouter);
     app.use('/register',registerRouter);

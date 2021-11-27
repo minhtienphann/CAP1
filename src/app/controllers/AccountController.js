@@ -8,27 +8,42 @@ class AccountController {
      
 
     //[GET METHOD] /Home
-    index(req, res) {
+    index(req, res, next) {
         sql.connect(config, function(err) {
           if(!err)
           {
-            var userID = req.cookies.userID;
-            console.log('SUCCESSFULL!!!!');
+            console.log('CONNECT DB SUCCESSFULL!!!!');
+            if(req.cookies.userID != null)
+            {
+              var userID = req.cookies.userID;
+              console.log('Save Cookie ID SUCCESSFULL !!!');
+            }
+            else
+            {
+              console.log('Save Cookie ID FALSE !!!');
+            }
             var request = new sql.Request();
-            request.query(`select * from USERR where USERR.acc_id = ${userID}`, 
+            request.query(`select * from USERR where USERR.acc_id=${userID}`, 
             function(error, result) {
               if(!error)
               {
                 console.log('SUCCESSFULL ACCOUNT');
                 var users = new userMD.User();
-                var temp = result.recordset[0];
-                users.setfull_name = temp.full_name;
-                users.setphone = temp.phone_number;
-                users.setsex = temp.sex;
-                users.setbirth_date = temp.date_of_birth;
-                users.setemail = temp.email;
-                users.street = temp.street;
-                res.render('account',{users})
+                if(result.rowsAffected != 0)
+                {
+                  var temp = result.recordset[0];
+                  users.setfull_name = temp.full_name;
+                  users.setphone = temp.phone_number;
+                  users.setsex = temp.sex;
+                  users.setbirth_date = temp.date_of_birth;
+                  users.setemail = temp.email;
+                  users.street = temp.street;
+                  res.render('account',{users})
+                }
+                else
+                {
+                  res.send('TAI KHOAN CHUA TON TAI');
+                }
               }
               else
               {
@@ -40,11 +55,16 @@ class AccountController {
             console.log(err);
           }
         });
+      
     }
 
-    // login(res, req) {
-        
-    // }
+    addinfor(req,res, next) {
+
+    }
+
+
+
+
 }
 
 module.exports = new AccountController;

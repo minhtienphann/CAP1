@@ -2,7 +2,7 @@ config = {
     user: 'sa1',
     password: '1234',
     server: 'localhost', 
-    database: 'ASSISTANCECOMMUNITY',
+    database: 'ASSISTANCOMMUNITY',
     port: 1433,
     trustServerCertificate: true,
     options: {
@@ -12,3 +12,4 @@ config = {
 };
 
 module.exports = config;
+
