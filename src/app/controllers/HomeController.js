@@ -1,6 +1,5 @@
 const config = require('../../config/db/index');
 const sql = require('mssql');
-const setID = require('../../config/db/setid');
 
 
 

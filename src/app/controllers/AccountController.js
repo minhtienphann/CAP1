@@ -23,7 +23,7 @@ class AccountController {
               console.log('Save Cookie ID FALSE !!!');
             }
             var request = new sql.Request();
-            request.query(`select * from USERR where USERR.acc_id=${userID}`, 
+            request.query(`select * from USERR where acc_id=${userID}`, 
             function(error, result) {
               if(!error)
               {
@@ -48,6 +48,7 @@ class AccountController {
               else
               {
                 console.log('LOI TRUY XUAT TAI KHOAN : '+error);
+                res.redirect('/register/infor')
               }
             })
           }
@@ -57,12 +58,6 @@ class AccountController {
         });
       
     }
-
-    addinfor(req,res, next) {
-
-    }
-
-
 
 
 }

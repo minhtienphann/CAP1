@@ -19,7 +19,7 @@ class LoginController {
                 var user = req.body.username;
                 var password = req.body.password; 
                 var request = new sql.Request();
-                request.query(`select * from ACCOUNTUSER where acc_name='${user}' and password='${password}'`, function(error,User){
+                request.query(`select * from ACCOUNTUSER where user_name='${user}' and password='${password}'`, function(error,User){
                   if(!error)
                   {
                       console.log('LOGIN SUCCESSFULL!!!!');
@@ -28,6 +28,7 @@ class LoginController {
                   }
                   else
                   {
+                    console.log('LOGIN FALSE !!!!' + err);
                     res.redirect('/login');
                   }
                 });

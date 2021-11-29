@@ -16,79 +16,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+     <form method="POST" action="/register/addinfor">
         <div class="auth-form">
             <div class="auth-form-container">
-                <div class="auth-form--header">
-                    <h3 class="auth-form--heading input-info">Nhập Thông Tin Người Dùng
-                    </h3>
-                    <p>Khuyến cáo: Vui lòng nhập đầy đủ đủ và chính xác thông tin để được hổ trợ chính xác va nhanh chóng</p>
-                </div>
-                <div class="auth-form__form">
-                    <div class="auth-form__group">
-                        <p class="label">
-                            Họ Và Tên
-                            <span class="red">*</span>
-                        </p>
-                        <input type="text" class="auth-form__input" placeholder="Họ Và Tên ">
+                    <div class="auth-form--header">
+                        <h3 class="auth-form--heading input-info">Nhập Thông Tin Người Dùng
+                        </h3>
+                        <p>Khuyến cáo: Vui lòng nhập đầy đủ đủ và chính xác thông tin để được hổ trợ chính xác va nhanh chóng</p>
                     </div>
-                    <div class="auth-form__group">
-                        <p class="label">
-                            Số Điện Thoại Liên Hệ
-                            <span class="red">*</span>
-                        </p>
-                        <input type="number" class="auth-form__input" placeholder="Nhập Số Điện Thoại ">
-                    </div>
-                    <div class="auth-form__group">
-                        <p class="label">
-                            Giới Tính
-                            <span class="red">*</span>
-                            <select style="
-                            font-size: 1.6rem;
-                            height: 30px;
-                            width: 60px;">
-                                <option value="Nam">Nam</option>
-                                <option value="Nữ">Nữ</option>
-                            </select>
-                        </p>
-                        <p class="label">
-                            Năm Sinh
-                            <span class="red">*</span>
-                        </p>
-                        <input type="number" class="auth-form__input" placeholder="Nhập Năm Sinh ">
-                    </div>
-                    <div class="auth-form__group">
-                        <p class="label">
-                            E-mail Liên Hệ
-                            <span class="red">*</span>
-                        </p>
-                        <input type="email" class="auth-form__input" placeholder="Nhập E-mail Liên Hệ ">
-                    </div>
-                </div>
-                <div class="auth-form__group">
-                    <p class="label">
-                        Nơi cư trú (Đề nghị ghi rõ địa chỉ, tổ, thôn, xóm, xã phường, quận huyện, thành phố)
-                        <span class="red">*</span>
-                    </p>
-                    <div style="display: flex;">
-                        <input type="text" class="auth-form__input" placeholder="Tỉnh/Thành ">
-                        <input type="text" class="auth-form__input" placeholder="Quận/Huyện ">
-                        <input type="text" class="auth-form__input" placeholder="Phường/Xã ">
-                    </div>
-                    <input type="text" class="auth-form__input" placeholder="Ghi rõ số nhà, tên đưuòng ">
-                </div>
-                <div class="auth-form__aside">
-                    <p class="red">
-                        *Dữ liệu bạn cung cấp hoàn toàn bảo mật và chỉ phục vụ cho việc xác thực thông tin và liên hệ hỗ trợ
-                    </p>
-                </div>
-                <div class="auth-form__controls">
-                    <a href="index.html">
-                        <button class="btn auth-form__controls--back">Quay Lại Trang Chủ</button>
-                    </a>
-                    <button class="btn btn--primary">Tiếp Tục</button>
-                </div>
+                    <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <p class="label">
+                                    Họ Và Tên
+                                    <span class="red">*</span>
+                                </p>
+                                <input type="text" class="auth-form__input" name="full_name" placeholder="Họ Và Tên ">
+                            </div>
+                            <div class="auth-form__group">
+                                <p class="label">
+                                    Số Điện Thoại Liên Hệ
+                                    <span class="red">*</span>
+                                </p>
+                                <input type="number" name="phone_number" class="auth-form__input" placeholder="Nhập Số Điện Thoại ">
+                            </div>
+                            <div class="auth-form__group">
+                                <p class="label">
+                                    Giới Tính
+                                    <span class="red">*</span>
+                                    <select style="
+                                    font-size: 1.6rem;
+                                    height: 30px;
+                                    width: 60px;" name="sex">
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                    </select>
+                                </p>
+                                <p class="label">
+                                    Năm Sinh
+                                    <span class="red">*</span>
+                                </p>
+                                <input type="text" name="year" class="auth-form__input" placeholder="Nhập Năm Sinh ">
+                            </div>
+                            <div class="auth-form__group">
+                                <p class="label">
+                                    E-mail Liên Hệ
+                                    <span class="red">*</span>
+                                </p>
+                                <input type="email" name="email" class="auth-form__input" placeholder="Nhập E-mail Liên Hệ ">
+                            </div>
+                        </div>
+                        <div class="auth-form__group">
+                            <p class="label">
+                                Nơi cư trú (Đề nghị ghi rõ địa chỉ, tổ, thôn, xóm, xã phường, quận huyện, thành phố)
+                                <span class="red">*</span>
+                            </p>
+                            <div style="display: flex;">
+                                <input type="text" class="auth-form__input" name="thanhpho" placeholder="Tỉnh/Thành ">
+                                <input type="text" class="auth-form__input" name="quan" placeholder="Quận/Huyện ">
+                                <input type="text" class="auth-form__input" name="phuong"  name=""placeholder="Phường/Xã ">
+                            </div>
+                            <input type="text" class="auth-form__input" name="diachi" placeholder="Ghi rõ số nhà, tên đưuòng ">
+                        </div>
+                        <div class="auth-form__aside">
+                            <p class="red">
+                                *Dữ liệu bạn cung cấp hoàn toàn bảo mật và chỉ phục vụ cho việc xác thực thông tin và liên hệ hỗ trợ
+                            </p>
+                        </div>
+                        <div class="auth-form__controls">
+                            <a href="/">
+                                <button class="btn auth-form__controls--back">Quay Lại Trang Chủ</button>
+                            </a>
+                            <button class="btn btn--primary" type="submit">Tiếp Tục</button>
+                        </div>
             </div>
         </div>
+    </form>
 <!-- =================== footer ======================= -->
 </body>
 </html>

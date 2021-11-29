@@ -1,6 +1,7 @@
 const config = require('../../config/db/index');
-const setID = require('../../config/db/setid');
 const sql = require('mssql');
+const userMD = require('../../config/Model/User');
+const { request } = require('express');
 
 
 class RegisterController {
@@ -33,7 +34,7 @@ class RegisterController {
                     request.query(queryy, function(err, result) {
                         if(!err)
                         {
-                            ID = ID + result.recordset[0].id
+                            ID = username + result.recordset[0].id
                                 request.query(`insert into ACCOUNTUSER (acc_id,user_name,password,role_id)
                                 values('${ID}','${username}','${password2}','${role_id}')`, function(error) {
                                     if(!error)
@@ -56,11 +57,36 @@ class RegisterController {
         }
     }
 
-    infor(req,res, next) {
-        res.render('userinfor',{layout:false});
+    infor(req,res) {
+        res.render('userinfor');
       }
   
-        
+    
+
+    addinfor(req,res) {
+       var user = new userMD.User();
+       user.setfull_name = req.body.full_name;
+       user.setphone = req.body.phone_number;
+       user.setsex = req.body.sex;
+       user.setbirth_date = req.body.year;
+       user.setemail = req.body.email;
+       user.setstreet = req.body.diachi;
+       console.log = user.getfull_name;
+       res.send(user.sex);
+    //    sql.connect(config, function(err) {
+    //        if(err)
+    //        {
+    //            console.log('KET NOI DB FALSE !!!!');
+    //        }
+    //        else
+    //        {
+    //            request = new sql.Request();
+    //            request.query(``)
+    //        }
+    //    })
+    }
+
+    
 }
     
 
