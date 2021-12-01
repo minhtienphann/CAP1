@@ -9,21 +9,18 @@ class AccountController {
 
     //[GET METHOD] /Home
     index(req, res, next) {
-        sql.connect(config, function(err) {
-          if(!err)
-          {
-            console.log('CONNECT DB SUCCESSFULL!!!!');
-            if(req.cookies.userID != null)
+            var accID = req.cookies.accID;
+            var temp = '';
+            temp = accID;
+            temp = temp.slice(0,5)
+            if(temp=='admin')
             {
-              var userID = req.cookies.userID;
-              console.log('Save Cookie ID SUCCESSFULL !!!');
+              res.redirect('/admin');
             }
             else
             {
-              console.log('Save Cookie ID FALSE !!!');
-            }
             var request = new sql.Request();
-            request.query(`select * from USERR where acc_id=${userID}`, 
+            request.query(`select * from USERR where acc_id='${accID}'`, 
             function(error, result) {
               if(!error)
               {
@@ -37,7 +34,10 @@ class AccountController {
                   users.setsex = temp.sex;
                   users.setbirth_date = temp.date_of_birth;
                   users.setemail = temp.email;
-                  users.street = temp.street;
+                  users.setdistrict = temp.district;
+                  users.setsub_district = temp.sub_district;
+                  users.setcity = temp.city;
+                  users.street = temp.address;
                   res.render('account',{users})
                 }
                 else
@@ -51,15 +51,12 @@ class AccountController {
                 res.redirect('/register/infor')
               }
             })
+            }
+            
           }
-          else{
-            console.log(err);
-          }
-        });
+        
       
     }
 
-
-}
 
 module.exports = new AccountController;

@@ -9,6 +9,9 @@ module.exports.User =class User {
     phone_number;
     email;
     status;
+    sub_district;
+    district;
+    city;
     street;
     date_created;
 
@@ -134,6 +137,34 @@ module.exports.User =class User {
     set setstreet(street)
     {
         this.street = street;
+    }
+
+    get getsub_district()
+    {
+        return this.sub_district;
+    }
+    set setsub_district(sub_district)
+    {
+        this.sub_district = sub_district;
+    }
+
+
+    get getdistrict()
+    {
+        return this.district;
+    }
+    set setdistrict(district)
+    {
+        this.district = district;
+    }
+
+    get getcity()
+    {
+        return this.city;
+    }
+    set setcity(city)
+    {
+        this.city = city;
     }
 
 

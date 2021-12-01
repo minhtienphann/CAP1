@@ -9,7 +9,8 @@ class AdminController {
      
 
     //[GET METHOD] /Home
-    index(req,res) {
+    index(req,res,next) {
+        
         res.render('admin');
     }
    
