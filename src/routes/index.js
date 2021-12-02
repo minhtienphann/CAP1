@@ -15,7 +15,7 @@ function route(app) {
   //   saveUninitialized: true,
   //   cookie: { maxAge: 60000 }
   // }));
-    app.use('/admin',Authentication.requireAthu,adminRouter);
+    app.use('/admin',adminRouter);
     app.use('/account',Authentication.requireAthu,accountRouter);
     app.use('/login',loginRouter);
     app.use('/register',registerRouter);
