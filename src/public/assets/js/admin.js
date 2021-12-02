@@ -5,11 +5,14 @@ var viewUser = document.getElementById("list-all-user");
 var accMain = document.getElementById("acc-main")
 var updateProfile = document.getElementById("update-all-user")
 var showUpdateProfile = document.getElementById("update-profile-user")
+var managerSystem = document.getElementById("info-system")
+var showManagerSystem = document.getElementById("statistical-web")
 btnInfo.onclick = function(){
     viewInfo.style.display = "block";
     viewUser.style.display = "none";
     accMain.style.display = "none";
     showUpdateProfile.style.display = "none"
+    showManagerSystem.style.display = "none"
 }
 
 showUser.onclick = function(){
@@ -17,6 +20,7 @@ showUser.onclick = function(){
     viewUser.style.display = "block";
     accMain.style.display = "none";
     showUpdateProfile.style.display = "none"
+    showManagerSystem.style.display = "none"
 }
 
 updateProfile.onclick = function(){
@@ -24,4 +28,23 @@ updateProfile.onclick = function(){
     viewUser.style.display = "none";
     accMain.style.display = "none";
     showUpdateProfile.style.display = "block"
+    showManagerSystem.style.display = "none"
 }
+
+managerSystem.onclick = function(){
+    viewInfo.style.display = "none";
+    viewUser.style.display = "none";
+    accMain.style.display = "none";
+    showUpdateProfile.style.display = "none"
+    showManagerSystem.style.display = "block"
+}
+
+jQuery(document).ready(function ($) {
+    $('#info-system').click(function(){
+        $('.counter').counterUp({
+        delay: 10,
+        time: 600
+    })
+     })
+    
+})

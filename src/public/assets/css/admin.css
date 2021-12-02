@@ -259,14 +259,70 @@
 .quantity-user{
     width: 200px;
     height: 200px;
-    border: 3px solid red;
+    background-color: rgb(56, 22, 253);
+    border: 3px solid var(--while-color);
     border-radius: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
 }
 
-.quantity-user span{
+.show-element i{
+    font-size: 50px;
+    color: var(--while-color);
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.show-element i span{
+    font-size: 30px;
+    color: var(--while-color);
     display: block;
 }
+
+.statistical-item{
+    width: 28%;
+    text-align: center;
+    display: inline-block;
+    margin: 20px 94px;
+}
+
+
+
+.statistical-item li:last-child{
+    color:#FE9900;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.give-user{
+    width: 200px;
+    height: 200px;
+    background-color: #F02020;
+    border: 3px solid var(--while-color);
+    border-radius: 50%;
+    display: flex;
+}
+
+.take-user{
+    width: 200px;
+    height: 200px;
+    background-color: #5EBF20;
+    border: 3px solid var(--while-color);
+    border-radius: 50%;
+    display: flex;
+}
+
+.exchange-user{
+    width: 200px;
+    height: 200px;
+    background-color: #d05cbe;
+    border: 3px solid var(--while-color);
+    border-radius: 50%;
+    display: flex;
+}
+
+.statistical-web{
+    display: none;
+}
+
