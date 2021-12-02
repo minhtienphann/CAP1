@@ -120,6 +120,7 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 .acc-main img{
     font-size: 1.6rem;
@@ -180,4 +181,92 @@
 
 .list-all-user{
     display: none;
+}
+
+.profile-repair{
+    margin-top: 40px;
+}
+
+.find-user{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+
+.find-id{
+    width: 80%;
+    height: 30px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.submit-id{
+    background-color: var(--primary-color);
+    border: 1px solid #333;
+    width: 40px;
+    display: inline-flex;
+    padding: 2px 0;
+    justify-content: center;
+}
+
+.submit-id-icon{
+    font-size: 22px;
+    color: var(--while-color);
+}
+
+.tbl-find-user{
+    width: 100%;
+    border: 1px solid #333;
+}
+
+.tbl-find-user tr th{
+    background-color: var(--primary-color);
+    font-size: 16px;
+    color: var(--while-color);
+}
+
+.tbl-find-user tr td{
+    font-size: 14px;
+}
+
+.tbl-find-user td, 
+.tbl-find-user th{
+    border: 1px solid #333;
+    height: 50px;
+}
+
+.tbl-find-user td, 
+.tbl-find-user th:last-child{
+    width: 20px;
+    text-align: center;
+}
+
+.remove-user{
+    border: none;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.remove-icon{
+    font-size: 20px;
+}
+
+.update-profile-user{
+    display: none;
+}
+
+.quantity-user{
+    width: 200px;
+    height: 200px;
+    border: 3px solid red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.quantity-user span{
+    display: block;
 }
