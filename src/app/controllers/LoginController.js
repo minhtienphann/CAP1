@@ -1,5 +1,6 @@
 const config = require('../../config/db/index');
 const sql = require('mssql');
+const bcrypt = require('bcrypt');
 
 
 
@@ -33,7 +34,8 @@ class LoginController {
                             var temp = '';
                             temp = result.recordset[0].password;
                             temp = temp.slice(0,temp.indexOf(' '));
-                            var pass = temp.password;
+                            // let pass_db = temp.password;
+                            // let kp = bcrypt.compare(password,pass_db);
                             if(temp == password)
                             {
                               console.log('LOGIN ADMIN SUCCESSFULL!!!!');
@@ -68,7 +70,9 @@ class LoginController {
                         var temp = '';
                         temp = User.recordset[0].password;
                         temp = temp.slice(0,temp.indexOf(' '))
-                        if(temp == password)
+                        let pass_db = temp;
+                        let kq = bcrypt.compare(password,pass_db);
+                        if(kq)
                         {
                           console.log('LOGIN SUCCESSFULL!!!!');
                           res.cookie('accID',User.recordset[0].acc_id, {maxAge: 500000})
