@@ -1,7 +1,8 @@
 const config = require('../../config/db/index');
 const sql = require('mssql');
 const userMD = require('../../config/Model/User');
-const { request } = require('express');
+const bcrypt = require('bcrypt');
+
 
 
 class RegisterController {
@@ -18,8 +19,15 @@ class RegisterController {
         let username = req.body.username;
         let password1 = req.body.password1;
         let password2 = req.body.password2;
+        let hash_pass = '';
         if(password1==password2)
         {
+            bcrypt.hash(password2,5,function(err,result){
+                if(!err)
+                {
+                    hash_pass = result;
+                }
+            })
             console.log('TRUNG KHOP PASSWORD');
             sql.connect(config, function(err) {
                 if(err)
@@ -37,7 +45,7 @@ class RegisterController {
                             var temp = result.recordset[0].id;
                             ID = username + temp;
                                 request.query(`insert into ACCOUNTUSER (acc_id,user_name,password,role_id)
-                                values('${ID}','${username}','${password2}','${role_id}')`, function(error) {
+                                values('${ID}','${username}','${hash_pass}','${role_id}')`, function(error) {
                                     if(!error)
                                     {
                                         console.log('DANG KY THANH CONG !!!!');
