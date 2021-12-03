@@ -117,7 +117,7 @@
 .acc-main{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 600px;
     justify-content: center;
     align-items: center;
 }

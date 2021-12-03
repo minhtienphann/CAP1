@@ -114,16 +114,16 @@
     border-radius: 5px;
 }
 
-.acc-main{
+.admin-main{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 600px;
     justify-content: center;
     align-items: center;
-    display: none;
 }
-.acc-main img{
+.admin-main img{
     font-size: 1.6rem;
+
 }
 
 
