@@ -115,6 +115,7 @@
                     </button>
                 </div>
         </form>
+    <form method="POST" action="/account/changepass">
                 <div id="update-pass" class="update-pass">
                     <div class="acc-content-header">
                         <h2>Thay Đổi Mật Khẩu</h2>
@@ -122,22 +123,23 @@
                     </div>
                     <table class="update-user change-pass">
                         <tr>
-                            <th>Nhập Mật Khẩu Mới:</th>
+                            <th>Nhập Mật Khẩu Cũ:</th>
                             <td>
-                                <input type="password" class="input-pass update-new-pass">
+                                <input name="passwordold" type="password" class="input-pass update-new-pass">
                             </td>
                         </tr>
                         <tr>
-                            <th>Nhập Lại Mật Khẩu Mới:</th>
+                            <th>Nhập Mật Khẩu Mới:</th>
                             <td>
-                                <input type="password" class="input-pass update-new-pass">
+                                <input name="passwordnew" type="password" class="input-pass update-new-pass">
                             </td>
                         </tr>
                     </table>
                     <button class="btn-update btn-pass">
                         Cập Nhật Mật Khẩu
                     </button>
-                </div>
+                 </div>
+    </form>
             </div>
-    </div>
+        </div>
     <script type="text/javascript" src="assets/js/account.js"></script>

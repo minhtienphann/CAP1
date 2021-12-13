@@ -1,6 +1,7 @@
 const config = require('../../config/db/index');
 const sql = require('mssql');
 const userMD = require('../../config/Model/User')
+const bcrypt = require('bcrypt')
 
 class AccountController {
 
@@ -19,7 +20,10 @@ class AccountController {
             }
             else
             {
-            var request = new sql.Request();
+              sql.connect(config,function(loi) {
+                if(!loi)
+                {
+                  var request = new sql.Request();
             request.query(`select * from USERR where acc_id='${accID}'`, 
             function(error, result) {
               if(!error)
@@ -53,11 +57,17 @@ class AccountController {
                 res.redirect('/register/infor')
               }
             })
+                }
+                else
+                {
+                  console.log('LOI KET NOI :'+loi)
+                }
+              })
             }
           }
 
 
-
+    //[POST METHOD] UPDATE INFOR
     update(req,res) {
       var acc_id = '';
       acc_id = req.cookies.accID;
@@ -117,11 +127,74 @@ class AccountController {
         }
       })
     }
-        
+
+
+    changepass(req,res){
+      var acc_id = '';
+      acc_id = req.cookies.accID;
+      var passold = req.body.passwordold;
+      var passnew = req.body.passwordnew;
+      sql.connect(config,function(loi){
+        if(!loi)
+        {
+          var request1 = new sql.Request();
+          request1.query(`select * from ACCOUNTUSER where acc_id='${acc_id}'`, function(errs,result){
+            if(!errs)
+            {
+              var dbpass = '';
+              dbpass = result.recordset[0].password;
+              dbpass = dbpass.slice(0,dbpass.indexOf(' '));
+              bcrypt.compare(passold,dbpass, function(error,resultt){
+                if(resultt)
+                {
+                  bcrypt.hash(passnew,5,function(err,hashpass){
+                    if(!err)
+                    {
+                      let request2 = new sql.Request();
+                      request2.query(`update ACCOUNTUSER set password='${hashpass}' where acc_id='${acc_id}'`,function(error)
+                      {
+                        if(!error)
+                        {
+                          console.log('DOI THANH CONG')
+                          res.redirect('/account')
+                        }
+                        else
+                        {
+                          console.log('DOI MK THAT BAI!!! '+error);
+                          res.send("<html><a href='/account'>DOI MK THAT BAI</a></html>")
+                        }
+                      })
+                    }
+                    else
+                    {
+                      console.log('HASH PASS THAT BAI !!! '+err)
+                      res.send("<html><a href='/account'>Loi Hash MK</a></html>")
+                    }
+                  })
+                }
+                else
+                {
+                  console.log('CHECK PASS THAT BAI !!! '+ error)
+                  res.send("<html><a href='/account'>Mat Khau Cu Chua Chinh Xac</a></html>")
+                }
+              })
+            }
+            else
+            {
+              console.log('LOI : '+errs);
+            }
+          })
+        }
+        else
+        {
+          console.log('CONNECT LOI: '+loi)
+        }
+      })
+    }        
 
 
 
-    }
+}
 
 
 module.exports = new AccountController;

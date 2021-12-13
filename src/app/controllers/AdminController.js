@@ -21,9 +21,12 @@ class AdminController {
         var tempAdmin = {} ;
         var acc_id = 'admin0';
         
-        var sumUser;
-        var sumGive;
-        var sumTake;
+        var sum={};
+        var Give;
+        var Take;
+        var User;
+        var Done = 0;
+        sum['done'] = Done;
         var sumTraffic;
         sql.connect(config,function(err){
             if(!err)
@@ -63,13 +66,13 @@ class AdminController {
                 }
             })
 
-
+            // LAY TONG SO NGUOI DUNG
             var requestSumUser = new sql.Request();
             requestSumUser.query(`select COUNT(acc_id) as sum from USERR`, function(error,result){
                 if(!error)
                 {
-                     sumUser = result.recordset[0].sum;
-                     console.log(typeof result.recordset[0].sum)
+                     User = result.recordset[0].sum;
+                     sum['user'] = User;
                     
                 }
                 else
@@ -78,11 +81,38 @@ class AdminController {
                 }
             })
 
+            // LAY TONG SO NGUOI CHO
+            var requestGive = new sql.Request();
+            requestSumUser.query(`select COUNT(acc_id) as sum from USERR where status like 'muon cho'`, function(error,result){
+                if(!error)
+                {
+                     Give = result.recordset[0].sum;
+                     sum['give'] = Give;
+                    
+                }
+                else
+                {
+                    console.log('QUERY FALSE SUMUER IN ADMIN'+error)
+                }
+            })
 
-            console.log('sum: '+ sumUser)
+            // LAY TONG SO NGUOI NHAN
+            var requestSumUser = new sql.Request();
+            requestSumUser.query(`select COUNT(acc_id) as sum from USERR where status like 'muon nhan'`, function(error,result){
+                if(!error)
+                {
+                     Take = result.recordset[0].sum;
+                     sum['take'] = Take;
+                    
+                }
+                else
+                {
+                    console.log('QUERY FALSE SUMUER IN ADMIN'+error)
+                }
+            })
         })
        
-        res.render('admin',{tempuser,tempAdmin,sumUser})
+        res.render('admin',{tempuser,tempAdmin,sum})
         
         // res.send(tempuser)
     }
