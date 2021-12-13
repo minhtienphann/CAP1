@@ -51,13 +51,21 @@
                                 <td>{{users.email}}</td>
                             </tr>
                             <tr>
+                                <th>Trạng Thái:</th>
+                                <td style="color: red; font-weight:700">{{users.status}}</td>
+                            </tr>
+                             <tr>
+                                <th>Mô Tả:</th>
+                                <td>{{users.description}}</td>
+                            </tr>
+                            <tr>
                                 <th>Địa Chỉ Liên Hệ:</th>
                                 <td>{{users.street}}</td>
                             </tr>
                         </table>
                     </div>
                 </div>
-
+        <form method="POST" action="/account/update">
                 <div id="update-info" class="update-info">
                     <div class="acc-content-header">
                         <h2>Cập Nhật Thông Tin Cá Nhân</h2>
@@ -67,13 +75,13 @@
                         <tr>
                             <th>Họ Tên:</th>
                             <td>
-                                <input type="text" class="input-update update-name" value="{{users.full_name}}">
+                                <input type="text" name="name" class="input-update update-name" value="{{users.full_name}}">
                             </td>
                         </tr>
                         <tr>
                             <th>Số Điện Thoại:</th>
                             <td>
-                                <input type="text" class="input-update update-phone" value="{{users.phone_number}}">
+                                <input type="text" name="phone" class="input-update update-phone" value="{{users.phone_number}}">
                             </td>
                         </tr>
                         <tr>
@@ -81,24 +89,24 @@
                             <td><select style="
                                 font-size: 1.6rem;
                                 height: 30px;
-                                width: 60px;">
+                                width: 60px;" name="sex">
                                     <option value="Nam">Nam</option>
-                                    <option value="Nữ">Nữ</option>
+                                    <option value="Nu">Nu</option>
                                 </select></td>
                         </tr>
                         <tr>
                             <th>Năm Sinh:</th>
-                            <td><input type="text" class="input-update update-birth" value="{{users.birth_date}}"></td>
+                            <td><input type="date" name="year" class="input-update update-birth" value="{{users.birth_date}}"></td>
                         </tr>
                         <tr>
                             <th>Địa Chỉ Liên Hệ:</th>
                             <td>
                                 <div style="display: flex;">
-                                    <input type="text" class="input-update update-city" placeholder="Tỉnh/Thành " value="{{users.city}}">
-                                    <input type="text" class="input-update update-district" placeholder="Quận/Huyện " value="{{users.district}}">
-                                    <input type="text" class="input-update update-ward" placeholder="Phường/Xã " value="{{users.sub_district}}">
+                                    <input type="text" name="tinh" class="input-update update-city" placeholder="Tỉnh/Thành " value="{{users.city}}">
+                                    <input type="text" name="quan" class="input-update update-district" placeholder="Quận/Huyện " value="{{users.district}}">
+                                    <input type="text" name="phuong" class="input-update update-ward" placeholder="Phường/Xã " value="{{users.sub_district}}">
                                 </div>
-                                <input type="text" class="input-update update-address" placeholder="Ghi rõ số nhà, tên đường" value="{{users.street}}">
+                                <input type="text" name="diachi" class="input-update update-address" placeholder="Ghi rõ số nhà, tên đường" value="{{users.street}}">
                             </td>
                         </tr>
                     </table>
@@ -106,6 +114,7 @@
                         CẬP NHẬT THÔNG TIN
                     </button>
                 </div>
+        </form>
                 <div id="update-pass" class="update-pass">
                     <div class="acc-content-header">
                         <h2>Thay Đổi Mật Khẩu</h2>

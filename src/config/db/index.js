@@ -1,6 +1,6 @@
 config = {
     user: 'sa1',
-    password: '1234',
+    password: '123',
     server: 'localhost', 
     database: 'ASSISTANCOMMUNITY',
     port: 1433,

@@ -18,11 +18,12 @@ create table ADMIN (
 	full_name nvarchar(max) not null,
 	date_of_birth date,
 	sex varchar(30),
-	phone_number tinyint,
+	phone_number char(12),
 	email nchar(200),
 	address nvarchar(max),
 	position nvarchar(200),
 	created_date datetime default(getdate()),
+	constraint fk_acc_id_admin foreign key (acc_id) references ACCOUNTADMIN(acc_id)
 )
 create  table ACCOUNTUSER (
 	acc_id char(50) not null primary key,
@@ -37,7 +38,7 @@ create table USERR (
 	full_name nvarchar(max) not null,
 	date_of_birth date,
 	sex varchar(30),
-	phone_number tinyint,
+	phone_number char(12),
 	email nchar(200),
 	sub_district nchar(100),
 	district nchar(100),
@@ -48,6 +49,7 @@ create table USERR (
 	status nchar(50),
 	traffic_id char(100),
 	created_date datetime default(getdate()),
+	constraint fk_acc_id_user foreign key (acc_id) references ACCOUNTUSER(acc_id)
 )
 create table TRAFFIC (
 	traffic_id char(100) not null primary key,

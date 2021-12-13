@@ -13,6 +13,7 @@ module.exports.User =class User {
     district;
     city;
     street;
+    description;
     date_created;
 
 
@@ -29,8 +30,20 @@ module.exports.User =class User {
         this.status = '';
         this.street = '';
         this.date_created = '';
+        this.description = '';
     }
     
+
+
+    get getdescription()
+    {
+        return this.description;
+    }
+
+    set setdesciption(text)
+    {
+        this.description = text;
+    }
 
     get getbirth_date()
     {

@@ -1,6 +1,7 @@
 const config = require('../../config/db/index');
 const sql = require('mssql');
 const bcrypt = require('bcrypt');
+const noti = require('../../public/assets/js/noiti')
 
 
 
@@ -23,10 +24,11 @@ class LoginController {
                 var tempa = '';
                 tempa = user;
                 var tempb = tempa.slice(0,5);
+                console.log(tempa);
                 if(tempb == 'admin')
                 {
                       var requests = new sql.Request();
-                      requests.query(`select * from ACCOUNTADMIN where acc_id='${tempa}';`, function(error,result){
+                      requests.query(`select * from ACCOUNTADMIN where admin_name='${tempa}';`, function(error,result){
                         if(!error)
                         {
                           if(result.recordset[0] != null)
@@ -71,8 +73,8 @@ class LoginController {
                         temp = User.recordset[0].password;
                         temp = temp.slice(0,temp.indexOf(' '))
                         let pass_db = temp;
-                        let kq = bcrypt.compare(password,pass_db);
-                        if(kq)
+                        bcrypt.compare(password,pass_db, function(err,result) {
+                          if(result)
                         {
                           console.log('LOGIN SUCCESSFULL!!!!');
                           res.cookie('accID',User.recordset[0].acc_id, {maxAge: 500000})
@@ -83,6 +85,7 @@ class LoginController {
                           console.log('Mat Khau Sai');
                           res.redirect('back')
                         }
+                        });
                       }
                       else{
                         res.redirect('/register')

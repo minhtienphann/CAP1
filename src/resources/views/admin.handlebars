@@ -20,7 +20,7 @@
     </div>
     <div class="acc-menu">
         <li class="acc-item">
-            <a href="" class="acc-btn"><i class="fas fa-sign-out-alt"></i>Đăng Xuất</a>
+            <a href="" class="acc-btn">...</a>
         </li>
     </div>
     </div>
@@ -36,22 +36,24 @@
                 </div>
                 <div class="admin-info-content">
                     <table class="info-admin">
+                        {{#each tempAdmin}}
                         <tr>
                             <th>Họ Tên:</th>
-                            <td>Admin</td>
+                            <td>{{this.full_name}}</td>
                         </tr>
                         <tr>
                             <th>Số Điện Thoại:</th>
-                            <td>0932535006</td>
+                            <td>{{this.phone_number}}</td>
                         </tr>
                         <tr>
                             <th>E-mail:</th>
-                            <td>c1se48team@gmail.com</td>
+                            <td>{{this.email}}</td>
                         </tr>
                         <tr>
                             <th>Địa Chỉ Liên Hệ:</th>
-                            <td>Số 254 Nguyễn Văn Linh, Thạc Gián, Thanh Khê, Đà Nẵng, Việt Nam</td>
+                            <td>{{this.address}}</td>
                         </tr>
+                        {{/each}}
                     </table>
                     </div>
             </div>
@@ -61,77 +63,19 @@
                 </div>
                 <table class="tbl-list-user">
                     <tr>
-                        <th>Tên Đăng Nhập</th>
+                        <th>ID Người Dùng</th>
                         <th>Tên Người Dùng</th>
                         <th>Số Điện Thoại</th>
                         <th>Trạng Thái</th>
                     </tr>
+                    {{#each tempuser}}
                     <tr>
-                        <td>duc123</td>
-                        <td>Trần Viết Minh Đức</td>
-                        <td>0932535006</td>
-                        <td>Muốn Cho</td>
+                        <td>{{this.acc_id}}</td>
+                        <td>{{this.full_name}}</td>
+                        <td>{{this.phone_number}}</td>
+                        <td>{{this.status}}</td>
                     </tr>
-                    <tr>
-                        <td>duc123</td>
-                        <td>Trần Viết Minh Đức</td>
-                        <td>0932535006</td>
-                        <td>Muốn Cho</td>
-                    </tr>
-                    <tr>
-                        <td>duc123</td>
-                        <td>Trần Viết Minh Đức</td>
-                        <td>0932535006</td>
-                        <td>Muốn Cho</td>
-                    </tr>
-                    <tr>
-                        <td>duc123</td>
-                        <td>Trần Viết Minh Đức</td>
-                        <td>0932535006</td>
-                        <td>Muốn Cho</td>
-                    </tr>
-                    <tr>
-                        <td>duc123</td>
-                        <td>Trần Viết Minh Đức</td>
-                        <td>0932535006</td>
-                        <td>Muốn Cho</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {{/each}}
                 </table>
             </div>
             <div id="update-profile-user" class="update-profile-user">
@@ -139,12 +83,14 @@
                     <h2>Quản Lý Người Dùng</h2>
                 </div>
                 <div class="profile-repair">
+                <form method="GET" action="/admin/find">
                     <div class="find-user">
-                        <input type="text" class="find-id" placeholder="Nhập tên người dùng">
+                        <input type="text" name="findName" class="find-id" placeholder="Nhập tên người dùng">
                         <button class="submit-id">
                             <i class="fas fa-search submit-id-icon"></i>
                         </button>
                     </div>
+                </form>
                     <table class="tbl-find-user">
                     <tr>
                         <th>Tên Đăng Nhập</th>
@@ -152,39 +98,6 @@
                         <th>Số Điện Thoại</th>
                         <th>Trạng Thái</th>
                         <th></th>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="" class="remove-user">
-                                <i class="fas fa-trash-alt remove-icon"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="" class="remove-user">
-                                <i class="fas fa-trash-alt remove-icon"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button type="" class="remove-user">
-                                <i class="fas fa-trash-alt remove-icon"></i>
-                            </button>
-                        </td>
                     </tr>
                     <tr>
                         <td></td>
@@ -207,7 +120,7 @@
                 <ul class="statistical-item">
                     <li class="quantity-user show-element">
                         <i class="fas fa-users">
-                            <span class="counter" >100000</span>
+                            <span class="counter" >{{sum}}</span>
                         </i>
                         
                     </li>

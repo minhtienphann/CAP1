@@ -37,7 +37,9 @@ class AccountController {
                   users.setdistrict = temp.district;
                   users.setsub_district = temp.sub_district;
                   users.setcity = temp.city;
+                  users.setstatus = temp.status;
                   users.street = temp.address;
+                  users.setdesciption = temp.description;
                   res.render('account',{users})
                 }
                 else
@@ -52,10 +54,73 @@ class AccountController {
               }
             })
             }
-            
           }
+
+
+
+    update(req,res) {
+      var acc_id = '';
+      acc_id = req.cookies.accID;
+      var updateUser = new userMD.User();
+      updateUser.setfull_name = req.body.name;
+      updateUser.setphone = req.body.phone;
+      updateUser.setsex = req.body.sex;
+      updateUser.setbirth_date = req.body.year;
+      updateUser.setcity = req.body.tinh;
+      updateUser.setdistrict = req.body.quan;
+      updateUser.setsub_district = req.body.phuong;
+      updateUser.setstreet = req.body.diachi;
+      sql.connect(config,function(error){
+        if(!error)
+        {
+          var request1 = new sql.Request();
+          if(updateUser.getbirth_date.length < 0) {
+            request1.query(`update USERR set full_name='${updateUser.getfull_name}',
+            phone_number='${updateUser.getphone}',sex='${updateUser.getsex}',date_of_birth='${updateUser.getbirth_date}',
+            sub_district='${updateUser.getsub_district}',district='${updateUser.getdistrict}',city='${updateUser.getcity}',
+            address='${updateUser.getstreet}' where acc_id='${acc_id}}'`,function(err) {
+              if(!err)
+              {
+                res.redirect('back');
+                console.log('UPDATE THANH CONG USERINFOR');
+              }
+              else
+              {
+                console.log('UPDATE THAT BAI 1 !!!'+err);
+                res.send('FALSE UPDATE !!!');
+              }
+            })
+          }
+          else
+          {
+            var request2 = new sql.Request();
+            request2.query(`update USERR set full_name='${updateUser.getfull_name}',
+            phone_number='${updateUser.getphone}',sex='${updateUser.getsex}',sub_district='${updateUser.getsub_district}',
+            district='${updateUser.getdistrict}',city='${updateUser.getcity}',address='${updateUser.getstreet}'  where acc_id='${acc_id}'`
+            ,function(err) {
+              if(!err)
+              {
+                console.log('UPDATE THANH CONG');
+                res.redirect('back');
+              }
+              else
+              {
+                console.log('UPDATE THAT BAI 2 !!!'+err)
+                res.send('UPDATE THATBAI');
+              }
+            })
+          }
+        }
+        else
+        {
+          console.log('CONNECT THAT BAI !!'+error)
+        }
+      })
+    }
         
-      
+
+
+
     }
 
 
