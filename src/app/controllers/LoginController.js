@@ -41,7 +41,7 @@ class LoginController {
                             if(temp == password)
                             {
                               console.log('LOGIN ADMIN SUCCESSFULL!!!!');
-                              res.cookie('accID',result.recordset[0].acc_id, {maxAge: 500000})
+                              res.cookie('accID',result.recordset[0].acc_id, {maxAge: 1800000})
                               res.redirect('/admin');
                             }
                             else{
@@ -77,7 +77,7 @@ class LoginController {
                           if(result)
                         {
                           console.log('LOGIN SUCCESSFULL!!!!');
-                          res.cookie('accID',User.recordset[0].acc_id, {maxAge: 500000})
+                          res.cookie('accID',User.recordset[0].acc_id, {maxAge: 1800000})
                           res.redirect('/account');
                         }
                         else
