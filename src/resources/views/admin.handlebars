@@ -99,8 +99,9 @@
                         <th>Trạng Thái</th>
                         <th></th>
                     </tr>
+                    {{#each tempb}}
                     <tr>
-                        <td></td>
+                        <td>{{this.full_name}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -110,6 +111,7 @@
                             </button>
                         </td>
                     </tr>
+                    {{/each}}
                     </table>
                 </div>
             </div>

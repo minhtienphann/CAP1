@@ -1,10 +1,6 @@
 const config = require('../../config/db/index');
 const sql = require('mssql');
 const bcrypt = require('bcrypt');
-const noti = require('../../public/assets/js/noiti')
-
-
-
 
 class LoginController {
 
@@ -78,7 +74,7 @@ class LoginController {
                         {
                           console.log('LOGIN SUCCESSFULL!!!!');
                           res.cookie('accID',User.recordset[0].acc_id, {maxAge: 1800000})
-                          res.redirect('/account');
+                          res.redirect('/');
                         }
                         else
                         {

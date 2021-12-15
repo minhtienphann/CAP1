@@ -168,22 +168,31 @@ class AdminController {
 
     //[GET] FIND USER
     // find(req,res) {
+    //     var tempb = '';
     //     var temp = req.query.findName;
-    //     var request = new sql.Request();
-    //     request.query(`select * from USERR where full_name like '${temp}'`,function(err,result){
+    //     sql.connect(config,function(err) {
     //         if(!err)
     //         {
-    //             var tempb = '';
-    //             tempb = result.recordset[0];
-    //             console.log(tempb);
-    //             res.json(tempb);
-    //             res.send('OK')
+    //             var request = new sql.Request();
+    //             request.query(`select * from USERR where full_name like '${temp}'`,function(err,result){
+    //                 if(!err)
+    //                 {
+    //                     tempb = result.recordset[0];
+    //                     res.redirect('/admin')
+    //                 }
+    //                 else
+    //                 {
+    //                     console.log("LOI FIND !!!" + err)
+    //                 }
+    //             })
     //         }
     //         else
     //         {
-    //             console.log("LOI FIND !!!" + err)
+    //             console.log('ERR !!!' + err);
     //         }
+            
     //     })
+        
     // }
    
 }
