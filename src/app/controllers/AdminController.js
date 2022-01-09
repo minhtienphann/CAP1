@@ -1,12 +1,11 @@
 const config = require('../../config/db/index');
+const userMD = require('../../config/Model/User')
 const sql = require('mssql');
 
 
 
 class AdminController {
 
-    
-     
 
     //[GET METHOD] /Home
     index(req,res,next) {

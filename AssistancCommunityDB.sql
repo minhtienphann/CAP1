@@ -65,7 +65,16 @@ create table TRAFFIC (
 	traffic_status nchar(100) default('Chua Hoan Thanh'),
 
 )
-
+-- Add constranint for table
 alter table USERR add constraint pk_traffic_id foreign key(traffic_id) references TRAFFIC(traffic_id)
 alter table TRAFFIC add constraint pk_user_id foreign key(user_id1) references USERR(user_id)
 alter table TRAFFIC add constraint pk_user_id2 foreign key(user_id2) references USERR(user_id)
+
+-- Create base values for system
+
+-- Create ROLE 
+Insert Into ROLE values('1','admin')
+Insert Into ROLE values('2','user')
+
+-- Create Account For Admin
+Insert Into ACCOUNTADMIN values('ac1','admin','admin123',1)
